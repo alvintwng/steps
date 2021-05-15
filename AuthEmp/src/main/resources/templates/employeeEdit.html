@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>New/Edit Employee</title>
+</head>
+<body>
+	<h2>New/Edit Employee</h2>
+	<form action="#" th:action="@{/emp/save}" th:object="${employee}" method="POST">
+
+		<input type="text" hidden th:field="*{empId}" readonly="readonly"/>
+	
+		<div>
+			<label>User Name: </label>
+			<input class="form-control" type="text" minlength="4" maxlength="8" th:field="*{empName}" required/>
+		</div>
+	
+		<label>Roles</label>
+		<div class="form-check form-check-inline" th:block th:each="roles : ${roles}">
+			<input type="checkbox" th:field="*{roles}" th:text="${roles.name}"
+				th:value="${roles.roleId}" />
+		</div>
+
+		<div>
+			<label>User Password: </label> 
+			<input class="form-control" type="password" th:field="*{password}" required />
+		</div>
+
+		<button  type="submit">Save</button>
+	 	<a href="/emp" role="button">Cancel</a>
+ 	</form>	
+</body>
+</html>

@@ -20,8 +20,41 @@ import org.springframework.web.servlet.ModelAndView;
 public class EmployeeController {
 
 	@Autowired
+	private EmployeeDao employeeDao;
+	
+	@Autowired
 	private RoleRepo rolerepo;
+	
+	@GetMapping("/")
+	public String viewEmpPage(Model model) {
+		List<Role> roles = rolerepo.findAll();
+		model.addAttribute("roles", roles);
+		model.addAttribute("listEmps", employeeDao.getAllEmployees());		
+		return "employees";
+	}
 
+	@GetMapping("/emp/new")
+	public String showNewEmpForm(Model model) {
+		
+		Employee emp = new Employee();
+		model.addAttribute("employee", emp);
+		List<Role> roles = rolerepo.findAll();
+		model.addAttribute("roles", roles);
+
+		return "employeeEdit";
+	}
+
+	@PostMapping(value = "/emp/save")
+	public String saveEmp(@Valid @ModelAttribute("employee") Employee emp, BindingResult bindingResult) {
+		
+		if(bindingResult.hasErrors())
+			return "employeeEdit";
+
+		employeeDao.save(emp);
+		return "redirect:/";
+	}
+
+	
 	@GetMapping("/emp/roleNew")
 	public String showNewRoleForm(Model model) {
 		
@@ -38,6 +71,6 @@ public class EmployeeController {
 			return "roleNew";
 
 		rolerepo.save(role);
-		return "redirect:/emp/roleNew";
+		return "redirect:/";
 	}
 }
