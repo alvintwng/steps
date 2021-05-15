@@ -44,6 +44,18 @@ public class EmployeeController {
 		return "employeeEdit";
 	}
 
+	
+	@GetMapping("/emp/edit/{empId}")
+	public String editEmployee(@PathVariable("empId") int empId, Model model) {
+		
+		Employee emp = employeeDao.getEmployeeById(empId);
+		model.addAttribute("employee", emp);
+		List<Role> roles = rolerepo.findAll();
+		model.addAttribute("roles", roles);
+		
+		return "employeeEdit";
+	}
+	
 	@PostMapping(value = "/emp/save")
 	public String saveEmp(@Valid @ModelAttribute("employee") Employee emp, BindingResult bindingResult) {
 		
@@ -53,7 +65,14 @@ public class EmployeeController {
 		employeeDao.save(emp);
 		return "redirect:/";
 	}
+	
+	@GetMapping("/emp/delete/{empId}")
+	public String deleteEmplopyee(@PathVariable(name = "empId") int empId) {
+		
+		employeeDao.delete(empId);
 
+		return "redirect:/";
+	}
 	
 	@GetMapping("/emp/roleNew")
 	public String showNewRoleForm(Model model) {

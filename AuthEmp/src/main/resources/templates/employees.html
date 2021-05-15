@@ -14,6 +14,7 @@
 			 	<th>ID</th>
 				<th>User Name</th>
 				<th>Role Type</th>
+				<th>Actions</th>
 		</thead>
 		
 		<tbody>
@@ -21,6 +22,10 @@
  				<td>[[ ${emp.empId} ]]</td>
 				<td>[[ ${emp.empName} ]]</td>
 				<td>[[ ${emp.roles} ]]</td>
+				<td >
+					<a th:href="@{'/emp/edit/' + ${emp.empId}}">Edit  </a>
+					<a th:href="@{'/emp/delete/' + ${emp.empId}}">Delete</a>
+				</td>				
 			</tr>
 		</tbody>
 	</table> 
