@@ -12,7 +12,7 @@
 	<artifactId>AuthEmp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>AuthEmp</name>
-	<description>Demo project for Spring Authenticatioon</description>
+	<description>Demo project for Spring Authentication</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -20,6 +20,14 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -41,10 +49,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 	</dependencies>
 
