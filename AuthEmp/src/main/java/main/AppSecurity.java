@@ -20,18 +20,17 @@ public class AppSecurity extends WebSecurityConfigurerAdapter{
 		return new UserDetailsServiceImpl();
 	}
 	
-	// create new user with BCryptPassword, before uncomment this 
-//	@Bean
-//	public BCryptPasswordEncoder passwordEncoder() {
-//		return new BCryptPasswordEncoder();
-//	}
+	@Bean
+	public BCryptPasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 	
 	@Bean
 	public DaoAuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
 		authProvider.setUserDetailsService(userDetailsService());
-		authProvider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
-//		authProvider.setPasswordEncoder(passwordEncoder());
+//		authProvider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
+		authProvider.setPasswordEncoder(passwordEncoder());
 		
 		return authProvider;
 	}
@@ -45,11 +44,16 @@ public class AppSecurity extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 		
+			.antMatchers("/").hasAnyAuthority("USER", "MANAGER", "ADMIN")
+			.antMatchers("/emp/**").hasAnyAuthority("ADMIN", "MANAGER")
+			.antMatchers("/emp/role**").hasAuthority("ADMIN")
 			.anyRequest().authenticated()
 			.and()
 			.formLogin().permitAll()
 			.and()
-			.logout().permitAll();
-
+			.logout().permitAll()
+			.and()
+			.exceptionHandling().accessDeniedPage("/403")
+			;
 	}
 }

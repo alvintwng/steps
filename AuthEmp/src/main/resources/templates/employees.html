@@ -6,7 +6,8 @@
 </head>
 <body>
 <h2>Employee List</h2>
-	<a href="/emp/new">Create New Employee</a>
+	<a sec:authorize="hasAuthority('MANAGER')"
+		href="/emp/new">Create New Employee</a>
 	
  	<table border="1">
 		<thead>
@@ -22,7 +23,7 @@
  				<td>[[ ${emp.empId} ]]</td>
 				<td>[[ ${emp.empName} ]]</td>
 				<td>[[ ${emp.roles} ]]</td>
-				<td >
+				<td sec:authorize="hasAuthority('MANAGER')">
 					<a th:href="@{'/emp/edit/' + ${emp.empId}}">Edit  </a>
 					<a th:href="@{'/emp/delete/' + ${emp.empId}}">Delete</a>
 				</td>				
