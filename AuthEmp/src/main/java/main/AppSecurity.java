@@ -19,12 +19,19 @@ public class AppSecurity extends WebSecurityConfigurerAdapter{
 	public UserDetailsService userDetailsService() {
 		return new UserDetailsServiceImpl();
 	}
-
+	
+	// create new user with BCryptPassword, before uncomment this 
+//	@Bean
+//	public BCryptPasswordEncoder passwordEncoder() {
+//		return new BCryptPasswordEncoder();
+//	}
+	
 	@Bean
 	public DaoAuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
 		authProvider.setUserDetailsService(userDetailsService());
 		authProvider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
+//		authProvider.setPasswordEncoder(passwordEncoder());
 		
 		return authProvider;
 	}
@@ -43,6 +50,18 @@ public class AppSecurity extends WebSecurityConfigurerAdapter{
 			.formLogin().permitAll()
 			.and()
 			.logout().permitAll();
-
+		
+//			.antMatchers("/").hasAnyAuthority("USER", "CREATOR", "EDITOR", "ADMIN")
+//			.antMatchers("/new").hasAnyAuthority("ADMIN", "CREATOR")
+//			.antMatchers("/edit/**").hasAnyAuthority("ADMIN", "EDITOR")
+//			.antMatchers("/delete/**").hasAuthority("ADMIN")
+//			.anyRequest().authenticated()
+//			.and()
+//			.formLogin().permitAll()
+//			.and()
+//			.logout().permitAll()
+//			.and()
+//			.exceptionHandling().accessDeniedPage("/403")
+//			;
 	}
 }
