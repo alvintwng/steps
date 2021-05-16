@@ -24,7 +24,7 @@ public class EmployeeController {
 	
 	@Autowired
 	private RoleRepo rolerepo;
-	
+
 	@GetMapping("/")
 	public String viewEmpPage(Model model) {
 		List<Role> roles = rolerepo.findAll();

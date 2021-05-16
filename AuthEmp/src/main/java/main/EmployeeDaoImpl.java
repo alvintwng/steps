@@ -20,7 +20,6 @@ public class EmployeeDaoImpl implements EmployeeDao{
 	public List<Employee> getAllEmployees() {
 
 		List <Employee> list = employeeRepo.findAll();
-		System.out.println("***** Employee List Size  " + list.size() );
 		return list;
 	}
 
