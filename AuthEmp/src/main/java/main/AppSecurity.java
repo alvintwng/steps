@@ -50,18 +50,6 @@ public class AppSecurity extends WebSecurityConfigurerAdapter{
 			.formLogin().permitAll()
 			.and()
 			.logout().permitAll();
-		
-//			.antMatchers("/").hasAnyAuthority("USER", "CREATOR", "EDITOR", "ADMIN")
-//			.antMatchers("/new").hasAnyAuthority("ADMIN", "CREATOR")
-//			.antMatchers("/edit/**").hasAnyAuthority("ADMIN", "EDITOR")
-//			.antMatchers("/delete/**").hasAuthority("ADMIN")
-//			.anyRequest().authenticated()
-//			.and()
-//			.formLogin().permitAll()
-//			.and()
-//			.logout().permitAll()
-//			.and()
-//			.exceptionHandling().accessDeniedPage("/403")
-//			;
+
 	}
 }
