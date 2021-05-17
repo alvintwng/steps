@@ -14,6 +14,8 @@ Spring Authenatication - Employee Password Login
 |  08 | [ver07](https://github.com/alvintwng/steps/tree/ver07/AuthEmp) | [ SpringAuth, UserDetailServiceImpl ](  https://github.com/alvintwng/steps/commit/b78f5328a44ccec6235ed3e6b77770f70c08172d)          | <img src="img/210516AuthEmpV07.png" alt="0210516AuthEmpV07.png" height="72"> |
 |  09 | [ver08](https://github.com/alvintwng/steps/tree/ver08/AuthEmp) | [ BCryptPassword ](                     https://github.com/alvintwng/steps/commit/619013b5f64a6643d3780be3e3b700b11dff832b)          | <img src="img/210516AuthEmpV08.png" alt="0210516AuthEmpV08.png" height="72"> |
 |  10 | [ver09](https://github.com/alvintwng/steps/tree/ver09/AuthEmp) | [ sec:authorize, antMatchers ](         https://github.com/alvintwng/steps/commit/f0f1ca588f2e37e6e623679c400d4dafa281a22b)          | <img src="img/210516AuthEmpV09.png" alt="0210516AuthEmpV09.png" height="72"> |
+|  11 | [ver10](https://github.com/alvintwng/steps/tree/ver10/AuthEmp) | [ Login Page ](         https://github.com/alvintwng/steps/commit/92bc6571d9a5aa63329991a235137dbd77f9aeb2)          | <img src="img/210517AuthEmpV10.png" alt="0210517AuthEmpV10.png" height="72"> |
+|  12 | [ver11](https://github.com/alvintwng/steps/tree/ver11/AuthEmp) | [ Logout Page ](         https://github.com/alvintwng/steps/commit/61d9370784ff3aed52b95ade6b3b8fb4c85fb4bc)          | <img src="img/210517AuthEmpV11.png" alt="0210517AuthEmpV11.png" height="72"> |
 
 [:top: Top](#top)
 
