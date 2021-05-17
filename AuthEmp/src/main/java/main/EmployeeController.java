@@ -37,6 +37,11 @@ public class EmployeeController {
 	public String login() {
 			return "login";
 	}
+	@RequestMapping("/logout-success")
+	public String logout() {
+		System.out.println(" ====>  UserControl /Logout!! <================");
+			return "logout";
+	}
 	
 	@GetMapping("/emp/new")
 	public String showNewEmpForm(Model model) {
