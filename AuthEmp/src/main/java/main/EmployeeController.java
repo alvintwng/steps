@@ -32,7 +32,12 @@ public class EmployeeController {
 		model.addAttribute("listEmps", employeeDao.getAllEmployees());		
 		return "employees";
 	}
-
+	
+	@RequestMapping("/login")
+	public String login() {
+			return "login";
+	}
+	
 	@GetMapping("/emp/new")
 	public String showNewEmpForm(Model model) {
 		

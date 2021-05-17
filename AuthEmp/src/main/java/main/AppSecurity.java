@@ -42,14 +42,14 @@ public class AppSecurity extends WebSecurityConfigurerAdapter{
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
+		http.csrf().disable().authorizeRequests()
 		
 			.antMatchers("/").hasAnyAuthority("USER", "MANAGER", "ADMIN")
 			.antMatchers("/emp/**").hasAnyAuthority("ADMIN", "MANAGER")
 			.antMatchers("/emp/role**").hasAuthority("ADMIN")
 			.anyRequest().authenticated()
 			.and()
-			.formLogin().permitAll()
+			.formLogin().loginPage("/login").permitAll()
 			.and()
 			.logout().permitAll()
 			.and()
@@ -57,3 +57,6 @@ public class AppSecurity extends WebSecurityConfigurerAdapter{
 			;
 	}
 }
+//ref:
+//https://github.com/alvintwng/ntucLH/blob/master/mHCapStoneProj6/210127-SpringAUth/WebSecurityConfig.java
+//https://github.com/alvintwng/ntucLH/blob/master/mHCapStoneProj6/210127N-BankApp/BankApp/src/main/java/com/cp5/authenticate/AppSecurity.java
