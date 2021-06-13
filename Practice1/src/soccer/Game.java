@@ -1,3 +1,6 @@
+/*
+6.
+ */
 package soccer;
 
 public class Game {
