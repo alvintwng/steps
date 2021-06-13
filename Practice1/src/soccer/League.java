@@ -1,15 +1,3 @@
-/* 7.
-This class needs to have a method main so that it can be run as a console application.
-a. Right-click the soccer package and select New > Other.
-b. In the New File dialog box, select Categories > Java, then 
-    select File Types: > Java Main Class, and click Next.
-8.
-Using the classes that you have created means populating them with data. So you need to:
-- Instantiate a number of Player objects for each Team.
-- Instantiate some Team objects to play games.
-- Instantiate some Game objects to represent those games.
-- For each goal in a game, instantiate a Goal object and add it to the Goal array in the appropriate Game object.
-*/
 package soccer;
 
 public class League {
