@@ -1,9 +1,11 @@
+// 1. Practice 8-1: Using Methods: createTeams, createGames
 package soccer;
 
 public class League {
 
     public static void main(String[] args) {
 
+        // 4. Add code to call these new methods.
         Team[] theTeams = createTeams();
         Game[] theGames = createGames(theTeams);
 
@@ -22,7 +24,8 @@ public class League {
                 + currGame.goals[0].theTeam.teamName);
 
     }
-
+    // 2. Create a createTeams static method. 
+    // It will require no parameters and return a Team
     public static Team[] createTeams() {
 
         Player player1 = new Player();
@@ -52,6 +55,8 @@ public class League {
         return theTeams;
     }
 
+    // 3. create another static method, createGames. You will pass in an array of 
+    // type Team, and receive back an array of type Game.
     public static Game[] createGames(Team[] theTeams) {
         Game theGame = new Game();
         theGame.homeTeam = theTeams[0];
@@ -61,3 +66,8 @@ public class League {
     }
 
 }
+
+/* Console
+run:
+Goal scored after 55.0 mins by Geoffrey Chaucer of The Greens
+*/
