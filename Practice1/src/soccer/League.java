@@ -1,4 +1,3 @@
-// Practice 7-1: Manipulating Text
 package soccer;
 
 public class League {
@@ -48,8 +47,8 @@ public class League {
                 currGame.goals[0].thePlayer.playerName + " of " +
                 currGame.goals[0].theTeam.teamName);
         
-        // a simple loop to iterate through all the players who play for team2. 
-        // To test whether a match is found for “Sab”. 
+        
+
         for (Player thePlayer: team2.playerArray) {
             //System.out.println(thePlayer.playerName);
             if (thePlayer.playerName.matches(".*Sab.*")) {
@@ -57,7 +56,7 @@ public class League {
                 System.out.println("Last name is " + thePlayer.playerName.split(" ")[1]);
             }
         }
-        // to split the String around a space and return a String array:
+        
         StringBuilder familyNameFirst = new StringBuilder();
         for (Player thePlayer: team1.playerArray) {
             String[] name = thePlayer.playerName.split(" ");
@@ -70,12 +69,3 @@ public class League {
         } 
     }   
 }
-/* console
-run:
-Goal scored after 55.0 mins by Geoffrey Chaucer of The Greens
-Found Rafael Sabatini
-Last name is Sabatini
-Eliot, George
-Greene, Graham
-Chaucer, Geoffrey
-*/
