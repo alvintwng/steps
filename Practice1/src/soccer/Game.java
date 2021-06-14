@@ -9,7 +9,7 @@ public class Game {
     public Goal[] goals;
     
     public void playGame() {
-        /* Practice 8-2, Step 1e. Add code to initialize the array currGame.goals to a random size */
+        
         int numberOfGoals = (int)(Math.random() * 7);
         Goal[] theGoals = new Goal[numberOfGoals];
         this.goals = theGoals;

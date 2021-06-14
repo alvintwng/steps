@@ -1,4 +1,3 @@
-// Practice 8-2: Creating Game Data Randomly
 package soccer;
 
 import utility.GameUtils;
@@ -11,20 +10,7 @@ public class League {
         Game[] theGames = createGames(theTeams);
 
         Game currGame = theGames[0];
-
-//        //before transfer code to Game.java
-//        int numberOfGoals = (int)(Math.random() * 7); 
-//        Goal[] theGoals = new Goal[numberOfGoals]; 
-//        currGame.goals = theGoals;
-//        GameUtils.addGameGoals(currGame);
-//        
-//        for (Goal currGoal: currGame.goals) {
-//            System.out.println("Goal scored after " +
-//                currGoal.theTime + " mins by " + 
-//                currGoal.thePlayer.playerName +
-//                " of " + currGoal.theTeam.teamName);
-//        }
-
+        
         currGame.playGame();
         
         System.out.println(currGame.getDescription());
