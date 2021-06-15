@@ -1,3 +1,9 @@
+// Practice 8-3: Creating Overloaded Methods
+/* To allow for either accepting the default (maximum six goals), or specifying 
+    a different maximum, you need to overload the playGame method in Game. 
+    This means that there will be two methods, one that receives no parameters,
+    and one that receives the parameter specifying the maximum number of goals.
+*/
 package soccer;
 
 import utility.GameUtils;
@@ -9,13 +15,14 @@ public class Game {
     public Goal[] goals;
     
     public void playGame(int maxGoals) {
-        /* Practice 8-2. Add code to initialize the array currGame.goals to a random size */
-        int numberOfGoals = (int)(Math.random() * maxGoals + 1);
+
+        int numberOfGoals = (int)(Math.random() * (maxGoals + 1));
         Goal[] theGoals = new Goal[numberOfGoals];
         this.goals = theGoals;
         GameUtils.addGameGoals(this);        
     }
     
+    // 3b. playGame method that is overloaded.
     public void playGame() {
         playGame(6);
     }

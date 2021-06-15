@@ -1,3 +1,8 @@
+/* 4. Making League an Instance
+    In this section, instantiate League and run the various methods as
+    instance methods. This would allow League to represent more than one
+    tournament or league.
+*/
 package soccer;
 
 import utility.GameUtils;
@@ -6,6 +11,7 @@ public class League {
 
     public static void main(String[] args) {
         
+        //4b. instantiate a new League object with a reference, theLeague.
         League theLeague = new League();
 
         Team[] theTeams = theLeague.createTeams();
@@ -13,6 +19,7 @@ public class League {
 
         Game currGame = theGames[0];
         
+        // currGame.playGame(3);
         currGame.playGame();
         
         System.out.println(currGame.getDescription());
@@ -48,6 +55,8 @@ public class League {
         return theTeams;
     }
 
+    // 4a. For the method createGames, remove the static keyword. 
+    // The createGames method now becomes an instance method,
     public Game[] createGames(Team[] theTeams) {
         Game theGame = new Game();
         theGame.homeTeam = theTeams[0];
