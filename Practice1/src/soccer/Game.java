@@ -7,6 +7,11 @@ public class Game {
     private Team homeTeam;
     private Team awayTeam;
     private Goal[] goals;
+
+    public Game (Team homeTeam, Team awayTeam) {
+        this.homeTeam = homeTeam;
+        this.awayTeam = awayTeam;
+    }
     
     public void playGame(int maxGoals) {
 
