@@ -7,7 +7,8 @@ public class Game {
     private Team homeTeam;
     private Team awayTeam;
     private Goal[] goals;
-
+    
+    // 6. Add constructors for the Game class.
     public Game (Team homeTeam, Team awayTeam) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
