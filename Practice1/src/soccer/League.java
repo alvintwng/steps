@@ -15,7 +15,8 @@ public class League {
             currGame.playGame();
             System.out.println(currGame.getDescription());
         }
-
+        
+        // 5d. a call to the showBestTeam method.
         theLeague.showBestTeam(theTeams);
 
     }
@@ -49,8 +50,10 @@ public class League {
         Game[] theGames = {theGame, theGame2, theGame3, theGame4};
         return theGames;
     }
-
+    
+    //5. method in League to show the points scored by each team.
     public void showBestTeam(Team[] theTeams) {
+        // 6 to determine which team actually won the league.
         Team currBestTeam = theTeams[0];
         System.out.println("Winner of the league is " + 
                 currBestTeam.getTeamName());
@@ -63,3 +66,26 @@ public class League {
     }
 
 }
+
+/* console
+run:
+The Greens vs. The Reds
+Goal scored after 31.0 mins by Robert Service of The Reds
+Goal scored after 43.0 mins by Robert Service of The Reds
+The Reds win (0 - 2) 
+
+The Reds vs. The Greens
+It's a draw! (0 - 0) 
+
+The Greens vs. The Reds
+It's a draw! (0 - 0) 
+
+The Reds vs. The Greens
+It's a draw! (0 - 0) 
+
+Winner of the league is The Greens
+
+Team Points
+The Greens:3
+The Reds:5
+*/

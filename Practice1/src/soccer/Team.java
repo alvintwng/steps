@@ -4,8 +4,12 @@ public class Team {
     
     private String teamName;
     private Player[] playerArray;
+    
+    // Determine the League Winner
+    // 3. o store the number of points scored in the League
     private int pointsTotal;
-
+    
+    // 3c. method that increments the pointsTotal field by the value passed in. 
     public void incPointsTotal(int pointsTotal) {
         this.pointsTotal += pointsTotal;
     }
@@ -37,10 +41,16 @@ public class Team {
         this.playerArray = playerArray;
     }
 
+    /**
+     * @return the pointsTotal
+     */
     public int getPointsTotal() {
         return pointsTotal;
     }
 
+    /**
+     * @param pointsTotal the pointsTotal to set
+     */
     public void setPointsTotal(int pointsTotal) {
         this.pointsTotal = pointsTotal;
     }

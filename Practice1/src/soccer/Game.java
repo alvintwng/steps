@@ -1,3 +1,4 @@
+// Practice 10-1: Using Conditionals
 package soccer;
 
 import utility.GameUtils;
@@ -26,15 +27,18 @@ public class Game {
     }
     
     public String getDescription() {
+        // 2. Set up variables to hold the number of goals scored for each team.
         int homeTeamGoals = 0;
         int awayTeamGoals = 0;
         StringBuilder returnString = new StringBuilder();
-
+        
+        //2f. to show which teams are playing.
         returnString.append(homeTeam.getTeamName() + " vs. " + 
         awayTeam.getTeamName() + "\n");
         
         for (Goal currGoal: this.getGoals()) {
-
+            
+            //2b. test to determine which team scored each goal
             if (currGoal.getTheTeam() == homeTeam) {
                 homeTeamGoals++;
             }
@@ -48,9 +52,11 @@ public class Game {
             + currGoal.getTheTeam().getTeamName() +
               "\n");   
         }
-
+        
+        //2c. if the game was a draw or, if there was a winner, who the winner was.
         if (homeTeamGoals == awayTeamGoals) {
             returnString.append("It's a draw!");
+            //4. to increment this field when you have determined a game winner.
             homeTeam.incPointsTotal(1);
             awayTeam.incPointsTotal(1);
         } else if (homeTeamGoals > awayTeamGoals) {
