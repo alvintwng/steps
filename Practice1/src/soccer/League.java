@@ -69,3 +69,30 @@ public class League {
     }
 
 }
+/* console
+run:
+The Greens vs. The Reds
+It's a draw! (0 - 0) 
+
+The Reds vs. The Greens
+Goal scored after 60.0 mins by Geoffrey Chaucer of The Greens
+Goal scored after 65.0 mins by George Eliot of The Greens
+Goal scored after 70.0 mins by Geoffrey Chaucer of The Greens
+Goal scored after 84.0 mins by Graham Greene of The Greens
+The Greens win (0 - 4) 
+
+The Greens vs. The Reds
+Goal scored after 40.0 mins by Rafael Sabatini of The Reds
+Goal scored after 48.0 mins by Geoffrey Chaucer of The Greens
+It's a draw! (1 - 1) 
+
+The Reds vs. The Greens
+It's a draw! (0 - 0) 
+
+
+Team Points
+The Greens : 5
+The Reds : 3
+Winner of the League is The Greens
+
+*/
