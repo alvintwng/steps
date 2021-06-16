@@ -15,7 +15,6 @@ public class Game {
     }
     
     public void playGame(int maxGoals) {
-
         int numberOfGoals = (int)(Math.random() * (maxGoals + 1));
         Goal[] theGoals = new Goal[numberOfGoals];
         this.setGoals(theGoals);
