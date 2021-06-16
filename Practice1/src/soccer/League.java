@@ -16,7 +16,6 @@ public class League {
             System.out.println(currGame.getDescription());
         }
         
-        // 5d. a call to the showBestTeam method.
         theLeague.showBestTeam(theTeams);
 
     }
@@ -51,41 +50,18 @@ public class League {
         return theGames;
     }
     
-    //5. method in League to show the points scored by each team.
     public void showBestTeam(Team[] theTeams) {
-        // 6 to determine which team actually won the league.
-        Team currBestTeam = theTeams[0];
-        System.out.println("Winner of the league is " + 
-                currBestTeam.getTeamName());
-        
-        System.out.println("\nTeam Points");
-        for (Team currTeam: theTeams) {
-            System.out.println(currTeam.getTeamName() + ":" +
-                    currTeam.getPointsTotal());
+        Team currBestTeam = theTeams[0];  
+        System.out.println("\nTeam Points");       
+           
+        for (Team currTeam: theTeams){
+            System.out.println(currTeam.getTeamName() + " : " + currTeam.getPointsTotal());
+            currBestTeam = currTeam.getPointsTotal() > currBestTeam.getPointsTotal()?currTeam:currBestTeam;
         }
+        
+        System.out.println("Winner of the League is " + currBestTeam.getTeamName());
+        
+        
     }
 
 }
-
-/* console
-run:
-The Greens vs. The Reds
-Goal scored after 31.0 mins by Robert Service of The Reds
-Goal scored after 43.0 mins by Robert Service of The Reds
-The Reds win (0 - 2) 
-
-The Reds vs. The Greens
-It's a draw! (0 - 0) 
-
-The Greens vs. The Reds
-It's a draw! (0 - 0) 
-
-The Reds vs. The Greens
-It's a draw! (0 - 0) 
-
-Winner of the league is The Greens
-
-Team Points
-The Greens:3
-The Reds:5
-*/

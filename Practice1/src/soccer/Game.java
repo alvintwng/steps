@@ -1,4 +1,3 @@
-// Practice 10-1: Using Conditionals
 package soccer;
 
 import utility.GameUtils;
@@ -25,24 +24,21 @@ public class Game {
     public void playGame() {
         playGame(6);
     }
-    
+      
     public String getDescription() {
-        // 2. Set up variables to hold the number of goals scored for each team.
+                       
         int homeTeamGoals = 0;
         int awayTeamGoals = 0;
         StringBuilder returnString = new StringBuilder();
         
-        //2f. to show which teams are playing.
-        returnString.append(homeTeam.getTeamName() + " vs. " + 
+        returnString.append(homeTeam.getTeamName() + " vs. " +
         awayTeam.getTeamName() + "\n");
-        
+         
         for (Goal currGoal: this.getGoals()) {
             
-            //2b. test to determine which team scored each goal
-            if (currGoal.getTheTeam() == homeTeam) {
+            if (currGoal.getTheTeam()== homeTeam) {
                 homeTeamGoals++;
-            }
-            else {
+            } else {
                 awayTeamGoals++;
             }
             
@@ -50,13 +46,11 @@ public class Game {
             + currGoal.getTheTime() + " mins by "
             + currGoal.getThePlayer().getPlayerName() + " of "
             + currGoal.getTheTeam().getTeamName() +
-              "\n");   
+              "\n");
         }
         
-        //2c. if the game was a draw or, if there was a winner, who the winner was.
         if (homeTeamGoals == awayTeamGoals) {
             returnString.append("It's a draw!");
-            //4. to increment this field when you have determined a game winner.
             homeTeam.incPointsTotal(1);
             awayTeam.incPointsTotal(1);
         } else if (homeTeamGoals > awayTeamGoals) {
@@ -66,8 +60,7 @@ public class Game {
             returnString.append(awayTeam.getTeamName() + " win");
             awayTeam.incPointsTotal(2);
         }
-
-        returnString.append(" ("+ homeTeamGoals + " - " + awayTeamGoals + ") \n");
+        returnString.append(" (" + homeTeamGoals + " - " + awayTeamGoals + ") \n");
         
         return returnString.toString();
     }
