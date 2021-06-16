@@ -4,6 +4,11 @@ public class Team {
     
     private String teamName;
     private Player[] playerArray;
+    private int pointsTotal;
+
+    public void incPointsTotal(int pointsTotal) {
+        this.pointsTotal += pointsTotal;
+    }
 
     public Team(String teamName) {
         this.teamName = teamName;
@@ -30,6 +35,14 @@ public class Team {
 
     public void setPlayerArray(Player[] playerArray) {
         this.playerArray = playerArray;
+    }
+
+    public int getPointsTotal() {
+        return pointsTotal;
+    }
+
+    public void setPointsTotal(int pointsTotal) {
+        this.pointsTotal = pointsTotal;
     }
 
 }

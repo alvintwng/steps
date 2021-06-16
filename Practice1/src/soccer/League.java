@@ -16,6 +16,8 @@ public class League {
             System.out.println(currGame.getDescription());
         }
 
+        theLeague.showBestTeam(theTeams);
+
     }
 
     public Team[] createTeams() {
@@ -46,6 +48,18 @@ public class League {
         Game theGame4 = new Game(theTeams[1], theTeams[0]);
         Game[] theGames = {theGame, theGame2, theGame3, theGame4};
         return theGames;
+    }
+
+    public void showBestTeam(Team[] theTeams) {
+        Team currBestTeam = theTeams[0];
+        System.out.println("Winner of the league is " + 
+                currBestTeam.getTeamName());
+        
+        System.out.println("\nTeam Points");
+        for (Team currTeam: theTeams) {
+            System.out.println(currTeam.getTeamName() + ":" +
+                    currTeam.getPointsTotal());
+        }
     }
 
 }
