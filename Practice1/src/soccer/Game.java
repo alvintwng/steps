@@ -14,6 +14,7 @@ public class Game {
     }
     
     public void playGame(int maxGoals) {
+
         int numberOfGoals = (int)(Math.random() * (maxGoals + 1));
         Goal[] theGoals = new Goal[numberOfGoals];
         this.setGoals(theGoals);
@@ -23,7 +24,7 @@ public class Game {
     public void playGame() {
         playGame(6);
     }
-
+      
     public String getDescription() {
                        
         int homeTeamGoals = 0;
@@ -37,9 +38,11 @@ public class Game {
             
             if (currGoal.getTheTeam()== homeTeam) {
                 homeTeamGoals++;
+                /* Practice 10-2. 4d. Add code to increment Team.goalsTotal here */
                 homeTeam.incGoalsTotal(1);
             } else {
                 awayTeamGoals++;
+                /* Practice 10-2. Add code to increment Team.goalsTotal here */
                 awayTeam.incGoalsTotal(1);
             }
             
@@ -65,7 +68,7 @@ public class Game {
         
         return returnString.toString();
     }
-    
+
     public Team getHomeTeam() {
         return homeTeam;
     }

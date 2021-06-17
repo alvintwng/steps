@@ -5,25 +5,28 @@ public class Team {
     private String teamName;
     private Player[] playerArray;
     private int pointsTotal;
+    
+    /* Practice 10-2. 4a. Add goalsTotal attribute here */
     private int goalsTotal;
     
-    public void incGoalsTotal(int goals){
-        this.setGoalsTotal(this.getGoalsTotal() + goals);
-    }
-
-    public void incPointsTotal(int points){
-        this.pointsTotal += points;
+    /* Practice 10-2. 4b. Add incGoalsTotal() method here */
+    public void incGoalsTotal(int goals) {
+        this.goalsTotal = this.goalsTotal + goals;
     }
     
+    public void incPointsTotal(int pointsTotal) {
+        this.pointsTotal += pointsTotal;
+    }
+
     public Team(String teamName) {
         this.teamName = teamName;
     }
-    
+
     public Team(String teamName, Player[] players) {
-        this(teamName);
+        this(teamName);       
         this.playerArray = players;
     }
-    
+
     public Team() {}
 
     public String getTeamName() {
@@ -50,10 +53,16 @@ public class Team {
         this.pointsTotal = pointsTotal;
     }
 
+    /**
+     * @return the goalsTotal
+     */
     public int getGoalsTotal() {
         return goalsTotal;
     }
 
+    /**
+     * @param goalsTotal the goalsTotal to set
+     */
     public void setGoalsTotal(int goalsTotal) {
         this.goalsTotal = goalsTotal;
     }
