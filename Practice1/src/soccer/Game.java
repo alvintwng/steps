@@ -14,7 +14,6 @@ public class Game {
     }
     
     public void playGame(int maxGoals) {
-
         int numberOfGoals = (int)(Math.random() * (maxGoals + 1));
         Goal[] theGoals = new Goal[numberOfGoals];
         this.setGoals(theGoals);
@@ -24,7 +23,7 @@ public class Game {
     public void playGame() {
         playGame(6);
     }
-      
+
     public String getDescription() {
                        
         int homeTeamGoals = 0;
@@ -38,8 +37,10 @@ public class Game {
             
             if (currGoal.getTheTeam()== homeTeam) {
                 homeTeamGoals++;
+                homeTeam.incGoalsTotal(1);
             } else {
                 awayTeamGoals++;
+                awayTeam.incGoalsTotal(1);
             }
             
             returnString.append("Goal scored after "
@@ -64,7 +65,7 @@ public class Game {
         
         return returnString.toString();
     }
-
+    
     public Team getHomeTeam() {
         return homeTeam;
     }

@@ -55,12 +55,19 @@ public class League {
         System.out.println("\nTeam Points");       
            
         for (Team currTeam: theTeams){
-            System.out.println(currTeam.getTeamName() + " : " + currTeam.getPointsTotal());
+            System.out.println(currTeam.getTeamName() + " : " + currTeam.getPointsTotal() + " : "
+                     + currTeam.getGoalsTotal());
             currBestTeam = currTeam.getPointsTotal() > currBestTeam.getPointsTotal()?currTeam:currBestTeam;
+            if (currTeam.getPointsTotal() > currBestTeam.getPointsTotal()){
+                currBestTeam = currTeam;
+            } else if (currTeam.getPointsTotal() == currBestTeam.getPointsTotal()){
+                if (currTeam.getGoalsTotal() > currBestTeam.getGoalsTotal()){
+                currBestTeam = currTeam;
+                }
+            }
         }
         
         System.out.println("Winner of the League is " + currBestTeam.getTeamName());
-        
         
     }
 
