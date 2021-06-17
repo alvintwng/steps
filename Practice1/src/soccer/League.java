@@ -1,7 +1,3 @@
-// Practice 10-2: Debugging
-/* resolved the report the first one found. would be to use the number of goals
-    scored by a team to differentiate between two teams which are otherwise equal.
-*/
 package soccer;
 
 import utility.GameUtils;
@@ -26,6 +22,7 @@ public class League {
 
     public Team[] createTeams() {
 
+        /* Practice 11-1. Remove the code below that creates The Greens and The Reds */
         Player player1 = new Player("George Eliot");
         Player player2 = new Player("Graham Greene");
         Player player3 = new Player("Geoffrey Chaucer");
@@ -40,8 +37,10 @@ public class League {
         team2.getPlayerArray()[0] = new Player("Robert Service");
         team2.getPlayerArray()[1] = new Player("Robbie Burns");
         team2.getPlayerArray()[2] = new Player("Rafael Sabatini");
+        /* Practice 11-1. Remove the above code that creates The Greens and The Reds */
 
         Team[] theTeams = {team1, team2};
+
         return theTeams;
     }
 
@@ -54,70 +53,25 @@ public class League {
         return theGames;
     }
     
-    //2. Use the debugger to follow the execution of the showBestTeam method.
     public void showBestTeam(Team[] theTeams) {
-        Team currBestTeam = theTeams[0]; 
-        
-        // 2a. To debug. Set the breakpoint 
-        System.out.println("\nTeam Points");
-        //2c. Variables: `this` (the `League` object), `theTeams` (the `Team` array passed
-        //  into the method), and `currBestTeam` (a local variable in the method).
-        
-        //2e. Click Step Over (F8) 
-        
-        //3. Set Watch variables for currTeam.pointsTotal and currBestTeam.pointsTotal.
-        //3a. Click Create New Watch and, in the dialog box, type in currTeam.teamName. 
-        
+        Team currBestTeam = theTeams[0];  
+        System.out.println("\nTeam Points");       
+           
         for (Team currTeam: theTeams){
-            /* Practice 10-2. Modify the line below to print out the goalsTotal for the current team also */
-            // 5d. now prints the goalsTotal
-            System.out.println(currTeam.getTeamName() + " : " +
-                    currTeam.getPointsTotal() + ":" + currTeam.getGoalsTotal());
-            //currBestTeam = currTeam.getPointsTotal() > currBestTeam.getPointsTotal()?currTeam:currBestTeam;
-            /* Practice 10-2. 5. Remove ternary statement above then add a replacement if statement here */
-            if (currTeam.getPointsTotal() > currBestTeam.getPointsTotal()) {
+            System.out.println(currTeam.getTeamName() + " : " + currTeam.getPointsTotal() + " : "
+                     + currTeam.getGoalsTotal());
+            currBestTeam = currTeam.getPointsTotal() > currBestTeam.getPointsTotal()?currTeam:currBestTeam;
+            if (currTeam.getPointsTotal() > currBestTeam.getPointsTotal()){
                 currBestTeam = currTeam;
-            }
-            else if (currTeam.getPointsTotal() == currBestTeam.getPointsTotal()) {
-                if (currTeam.getGoalsTotal() > currBestTeam.getGoalsTotal()) {
-                    currBestTeam = currTeam;
+            } else if (currTeam.getPointsTotal() == currBestTeam.getPointsTotal()){
+                if (currTeam.getGoalsTotal() > currBestTeam.getGoalsTotal()){
+                currBestTeam = currTeam;
                 }
             }
         }
-        //6b. try debugging, add Watch Variables for currTeam.goalsTotal and currBestTeam.goalsTotal 
         
         System.out.println("Winner of the League is " + currBestTeam.getTeamName());
-        
         
     }
 
 }
-
-/* console
-debug:
-The Greens vs. The Reds
-It's a draw! (0 - 0) 
-
-The Reds vs. The Greens
-Goal scored after 27.0 mins by Robert Service of The Reds
-Goal scored after 42.0 mins by Graham Greene of The Greens
-Goal scored after 54.0 mins by Graham Greene of The Greens
-The Greens win (1 - 2) 
-
-The Greens vs. The Reds
-Goal scored after 10.0 mins by Graham Greene of The Greens
-Goal scored after 47.0 mins by Robert Service of The Reds
-Goal scored after 59.0 mins by Rafael Sabatini of The Reds
-Goal scored after 85.0 mins by George Eliot of The Greens
-It's a draw! (2 - 2) 
-
-The Reds vs. The Greens
-Goal scored after 38.0 mins by Robert Service of The Reds
-The Reds win (1 - 0) 
-
-
-Team Points
-The Greens : 4 : 4
-The Reds : 4 : 4
-Winner of the League is The Greens
-*/

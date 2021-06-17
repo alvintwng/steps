@@ -24,25 +24,23 @@ public class Game {
     public void playGame() {
         playGame(6);
     }
-      
+    
     public String getDescription() {
                        
         int homeTeamGoals = 0;
         int awayTeamGoals = 0;
         StringBuilder returnString = new StringBuilder();
         
-        returnString.append(homeTeam.getTeamName() + " vs. " +
-        awayTeam.getTeamName() + "\n");
+        returnString.append(this.getHomeTeam().getTeamName() + " vs. " +
+        this.getAwayTeam().getTeamName() + "\n");
          
         for (Goal currGoal: this.getGoals()) {
             
             if (currGoal.getTheTeam()== homeTeam) {
                 homeTeamGoals++;
-                /* Practice 10-2. 4d. Add code to increment Team.goalsTotal here */
                 homeTeam.incGoalsTotal(1);
             } else {
                 awayTeamGoals++;
-                /* Practice 10-2. Add code to increment Team.goalsTotal here */
                 awayTeam.incGoalsTotal(1);
             }
             
@@ -55,14 +53,14 @@ public class Game {
         
         if (homeTeamGoals == awayTeamGoals) {
             returnString.append("It's a draw!");
-            homeTeam.incPointsTotal(1);
-            awayTeam.incPointsTotal(1);
+            this.homeTeam.incPointsTotal(1);
+            this.awayTeam.incPointsTotal(1);
         } else if (homeTeamGoals > awayTeamGoals) {
             returnString.append(homeTeam.getTeamName() + " win");
-            homeTeam.incPointsTotal(2);
+            this.homeTeam.incPointsTotal(1);
         } else {
             returnString.append(awayTeam.getTeamName() + " win");
-            awayTeam.incPointsTotal(2);
+            this.awayTeam.incPointsTotal(1);
         }
         returnString.append(" (" + homeTeamGoals + " - " + awayTeamGoals + ") \n");
         
