@@ -1,17 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package utility;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+import soccer.Player;
+
 public class PlayerDatabase {
-    
-    /* Practice 11-1. Declare an ArrayList here */
-    
-    /* Practice 11-1. Add Constructor here */
-    
-    /* Practice 11-1. Add getTeam() method here */
+
+    private ArrayList <Player> players;
+
+    public PlayerDatabase() {
+        StringTokenizer authorTokens = new StringTokenizer(authorList, ",");
+        players = new ArrayList ();
+        while (authorTokens.hasMoreTokens()) {
+            players.add(new Player(authorTokens.nextToken()));
+        }
+    }
+
+    public Player[] getTeam(int numberOfPlayers) {
+        Player[] teamPlayers = new Player[numberOfPlayers];
+        for (int i = 0; i < numberOfPlayers; i++) {
+            int playerIndex = (int) (Math.random() * players.size());
+            teamPlayers[i] = players.get(playerIndex);
+            players.remove(playerIndex);
+        }
+        return teamPlayers;
+    }
         
 String authorList = 
 "Agatha Christie," + 
