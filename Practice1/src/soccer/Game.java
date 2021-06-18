@@ -3,19 +3,21 @@ package soccer;
 import utility.GameUtils;
 
 public class Game {
-
+    
     private Team homeTeam;
     private Team awayTeam;
     private Goal[] goals;
-
-    public Game (Team homeTeam, Team awayTeam) {
+    
+    /* Practice 11-2. Add LocalDateTime attribute here */
+    
+    /* Practice 11-2. Modify the constructor to include the date and time of the game */
+    public Game(Team homeTeam, Team awayTeam) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
     }
     
-    public void playGame(int maxGoals) {
-
-        int numberOfGoals = (int)(Math.random() * (maxGoals + 1));
+    public void playGame(int maxGoals) {       
+        int numberOfGoals = (int)(Math.random() * maxGoals + 1);
         Goal[] theGoals = new Goal[numberOfGoals];
         this.setGoals(theGoals);
         GameUtils.addGameGoals(this);        
@@ -31,6 +33,7 @@ public class Game {
         int awayTeamGoals = 0;
         StringBuilder returnString = new StringBuilder();
         
+        /* Practice 11-2. Modify the next line to include the date and time of the game */
         returnString.append(this.getHomeTeam().getTeamName() + " vs. " +
         this.getAwayTeam().getTeamName() + "\n");
          
