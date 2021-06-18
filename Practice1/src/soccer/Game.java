@@ -1,3 +1,4 @@
+// Practice 11-2: Working with LocalDateTime
 package soccer;
 
 import java.time.LocalDateTime;
@@ -99,10 +100,16 @@ public class Game {
         this.goals = goals;
     }
 
+    /**
+     * @return the theDateTime
+     */
     public LocalDateTime getTheDateTime() {
         return theDateTime;
     }
 
+    /**
+     * @param theDateTime the theDateTime to set
+     */
     public void setTheDateTime(LocalDateTime theDateTime) {
         this.theDateTime = theDateTime;
     }
