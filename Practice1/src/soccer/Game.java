@@ -1,14 +1,8 @@
-/* Practice 12-1: Creating a Class Hierarchy
-    class hierarchies give you a way of not only sharing like behaviors in 
-    different classes, but they also allow to use a common reference type 
-    for a set of objects of related but different types.
-*/
 package soccer;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-//import utility.GameUtils;
 
 public class Game {
     
@@ -23,37 +17,23 @@ public class Game {
         this.theDateTime = theDateTime;
     }
     
-    // 4c Remove the method  //  4d. Delete the GameUtils class in utlity package.
-    //public void playGame(int maxGoals) {       
-    //    int numberOfGoals = (int)(Math.random() * maxGoals + 1);
-    //    Goal[] theGoals = new Goal[numberOfGoals];
-    //    this.setGoals(theGoals);
-    //    GameUtils.addGameGoals(this);        
-    //}
-    
     public void playGame() {
-        /* Practice 12-1. Remove the following line */
-        //playGame(6);
-        
-        // 3c.c ArrayList useful for adding Goal objects randomly 
         ArrayList <Goal> eventList = new ArrayList();
         Goal currEvent;
-        // 3a.  add goals at various (randomly generated) intervals in a game.
-        for (int i = 1; i <= 90; i++) {
-            if (Math.random() > 0.95) {
+        for (int i = 1; i <=90; i++){
+            
+            if (Math.random() > 0.95){
                 currEvent = new Goal();
-                currEvent.setTheTeam(Math.random() > 0.5?homeTeam:awayTeam);
+                currEvent.setTheTeam(Math.random() > 0.5?homeTeam: awayTeam);
                 currEvent.setThePlayer(currEvent.getTheTeam().
-                getPlayerArray()[ (int)(Math.random() * 
-                        currEvent.getTheTeam().getPlayerArray().length )] );
+                getPlayerArray()[(int)(Math.random() * currEvent.getTheTeam().getPlayerArray().length)]);
                 currEvent.setTheTime(i);
                 eventList.add(currEvent);
-                //System.out.println(i); //3b.
+                //System.out.println(i);
             }
-            // 3n. create the array (the size based on the size of the ArrayList.),
-            // use the ArrayList to copy over the elements from the ArrayList to the array
             this.goals = new Goal[eventList.size()];
             eventList.toArray(goals);
+ 
         }
     }
     
@@ -76,7 +56,7 @@ public class Game {
                 awayTeamGoals++;
                 awayTeam.incGoalsTotal(1);
             }
-            
+
             returnString.append("Goal scored after "
             + currGoal.getTheTime() + " mins by "
             + currGoal.getThePlayer().getPlayerName() + " of "
