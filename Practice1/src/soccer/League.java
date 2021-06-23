@@ -1,3 +1,4 @@
+// Practice 12-1: Creating a Class Hierarchy
 package soccer;
 
 import java.time.LocalDateTime;
@@ -18,10 +19,14 @@ public class League {
         System.out.println(theLeague.getLeagueAnnouncement(theGames));
         for (Game currGame: theGames){
             currGame.playGame();
+            
+            /* Practice 12-1. Add a break command here */
+            // only one game is played and that no description is generated.
             //break;
+            /* Practice 12-1. Comment out the line below */
             System.out.println(currGame.getDescription());
         }
-
+        // 1c. Comment out theLeague.showBestTeam 
         theLeague.showBestTeam(theTeams);
 
     }
