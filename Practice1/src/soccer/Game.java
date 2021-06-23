@@ -41,7 +41,7 @@ public class Game {
         /* Practice 11-2. Modify the next line to include the date and time of the game */
         returnString.append(this.getHomeTeam().getTeamName() + " vs. " +
         this.getAwayTeam().getTeamName() + "\n" +
-            "Date " +  this.theDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE) + "\n");
+            "Date " +  this.getTheDateTime().format(DateTimeFormatter.ISO_LOCAL_DATE) + "\n");
          
         for (Goal currGoal: this.getGoals()) {
             
