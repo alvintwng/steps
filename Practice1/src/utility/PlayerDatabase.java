@@ -1,7 +1,6 @@
 package utility;
 
-import java.util.ArrayList;
-import java.util.StringTokenizer;
+import java.util.*;
 import soccer.Player;
 
 public class PlayerDatabase {
