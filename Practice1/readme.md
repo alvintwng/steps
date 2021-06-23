@@ -15,7 +15,9 @@ Soccer
 | 09 | 	[pr109](	https://github.com/alvintwng/steps/tree/pr109/Practice1)| 	[Adding Constructors	](	https://github.com/alvintwng/steps/commit/92c911ecb486e0c6a8ccaea2a022d85622e57328)| 	<img src="img/210615pr109.png" alt="210615pr109.png" height="144"> |
 | 10 | 	[pr110](	https://github.com/alvintwng/steps/tree/pr110/Practice1)| 	[Using Conditionals](	https://github.com/alvintwng/steps/commit/e2eeb2e5e125080a50a2fdbbfe04c4df45d48cd7)| 	<img src="img/210616pr110.png" alt="210616pr110.png" height="144"> |
 | 11 | 	[pr111](	https://github.com/alvintwng/steps/tree/pr111/Practice1)| 	[Debugging](	https://github.com/alvintwng/steps/commit/1203691c57586aec942513a5d07cb4bc20e84d83)| 	<img src="img/210617pr111.png" alt="210617pr111.png" height="144"> |
-| 12 | 	[pr112](	https://github.com/alvintwng/steps/tree/pr112/Practice1)| 	[	](	)| 	<img src="img/	.png" alt="	.png" height="144"> |
+| 12 | 	[pr112](	https://github.com/alvintwng/steps/tree/pr112/Practice1)| 	[ArrayList iterate thru Data	](	https://github.com/alvintwng/steps/commit/b9d3ac7814f0811ec96f0a2229eb5dbb46a4d8d7)| 	<img src="img/210618pr112.png" alt="210618pr112.png" height="144"> |
+| 13 | 	[pr113](	https://github.com/alvintwng/steps/tree/pr113/Practice1)| 	[LocalDateTime, Period](	https://github.com/alvintwng/steps/commit/ec6f013555b9eafb32bc5423567ff11decad2593)| 	<img src="img/210618pr113.png" alt="210618pr113.png" height="144"> |
+| 14 | 	[pr114](	https://github.com/alvintwng/steps/tree/pr114/Practice1)| 	[ArrayList, toArray](	https://github.com/alvintwng/steps/commit/7d0ecbe21a675b2aad98f6974fe594fb5577baea)| 	<img src="img/210623pr114.png" alt="210623pr114.png" height="144"> |
 | 01 | 	[	](	)| 	[	](	)| 	<img src="img/	.png" alt="	.png" height="144"> |
 
 [:top: Top](#top)
