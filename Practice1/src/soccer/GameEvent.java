@@ -1,3 +1,7 @@
+/* 2a. it abstract, because a GameEvent object will not be instantiated—only
+GameEvent subclasses like Goal, Kickoff, Pass, Dribble, Tackle, Foul, and
+similar objects will be instantiated.
+ */
 package soccer;
 
 public abstract class GameEvent {
