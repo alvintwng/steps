@@ -21,8 +21,8 @@ public class Game {
         ArrayList <GameEvent> eventList = new ArrayList();
         GameEvent currEvent;
         for (int i = 1; i <=90; i++){
-            if (Math.random() > 0.95){
-                currEvent = Math.random() > 0.6?new Goal():new Possession();
+            if (Math.random() > 0.8){
+                currEvent = Math.random() > 0.8?new Goal():new Possession();
                 currEvent.setTheTeam(Math.random() > 0.5?homeTeam: awayTeam);
                 currEvent.setThePlayer(currEvent.getTheTeam().
                 getPlayerArray()[(int)(Math.random() * currEvent.getTheTeam().getPlayerArray().length)]);
@@ -47,13 +47,14 @@ public class Game {
                "Date: " + this.getTheDateTime().format(DateTimeFormatter.ISO_LOCAL_DATE) + "\n");
          
         for (GameEvent currEvent: this.getEvents()) {
-            
-            if (currEvent.getTheTeam()== homeTeam) {
-                homeTeamGoals++;
-                homeTeam.incGoalsTotal(1);
-            } else {
-                awayTeamGoals++;
-                awayTeam.incGoalsTotal(1);
+            if (currEvent instanceof Goal) {
+                if (currEvent.getTheTeam()== homeTeam) {
+                    homeTeamGoals++;
+                    homeTeam.incGoalsTotal(1);
+                } else {
+                    awayTeamGoals++;
+                    awayTeam.incGoalsTotal(1);
+                }
             }
             
             returnString.append(currEvent +" after "
