@@ -59,14 +59,16 @@ public class League {
         
         return (Game[]) theGames.toArray(new Game[1]);
     }
-    
+
     public void showBestTeam(Team[] theTeams) {
+
         Team currBestTeam = theTeams[0];  
         System.out.println("\nTeam Points");       
            
         for (Team currTeam: theTeams){
             System.out.println(currTeam.getTeamName() + " : " + currTeam.getPointsTotal() + " : "
                      + currTeam.getGoalsTotal());
+
             currBestTeam = currTeam.getPointsTotal() > currBestTeam.getPointsTotal()?currTeam:currBestTeam;
             if (currTeam.getPointsTotal() > currBestTeam.getPointsTotal()){
                 currBestTeam = currTeam;
