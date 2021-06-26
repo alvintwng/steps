@@ -1,3 +1,9 @@
+/* Using Interfaces
+Practice 13-3: Using a Lambda Expression for Sorting (Optional Practice)
+
+order the players based on their goal scoring. However, 
+instead of having Player implement compareTo, you will use a lambda expression.
+*/
 package soccer;
 
 import java.time.LocalDateTime;
@@ -86,7 +92,10 @@ public class League {
         thePeriod.getMonths() + " month(s), and " +
         thePeriod.getDays() + " day(s)\n";
     }
-
+    
+    //4a. displays players in order by how many goals they scored.
+    //4b. There are a number of ways to do this. Here is some code that uses 
+    //the addAll method of ArrayList and the asList method of Arrays:
     public void showBestPlayers(Team[] theTeams) {
         ArrayList <Player> thePlayers = new ArrayList();
         for (Team currTeam: theTeams) {
@@ -94,7 +103,8 @@ public class League {
         }
         
         System.out.println("\n\nBest Players");
-
+        
+        //5. lambda expression to pass into the Collections.sort method.
         Collections.sort(thePlayers, (p1, p2) ->
                 Double.valueOf(p2.getGoalsScored()).compareTo
                 (Double.valueOf(p1.getGoalsScored())));
@@ -106,3 +116,29 @@ public class League {
         }
     }
 }
+/* console
+Team Points
+The Crows : 3 : 7
+The Robins : 2 : 10
+The Swallows : 1 : 8
+Winner of the League is The Crows
+
+
+Best Players
+Boris Pasternik : 3
+Geoffrey Chaucer : 3
+James Joyce : 3
+J. R. Tolkien : 2
+Charlotte Bronte : 2
+Alexander Solzhenitsyn : 2
+Wilkie Collins : 2
+Marcel Proust : 2
+J. M. Synge : 1
+Leo Tolstoy : 1
+Charles Dickens : 1
+Agatha Christie : 1
+G. K. Chesterton : 1
+Baroness Orczy : 1
+Alan Patton : 0
+BUILD SUCCESSFUL (total time: 0 seconds)
+*/
