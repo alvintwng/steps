@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.StringTokenizer;
 import utility.PlayerDatabase;
 
@@ -24,6 +25,7 @@ public class League {
         }
         
         theLeague.showBestTeam(theTeams);
+        theLeague.showBestPlayers(theTeams);
 
     }
 
@@ -74,7 +76,7 @@ public class League {
         System.out.println("Winner of the League is " + currBestTeam.getTeamName());
         
     }
-    
+ 
     public String getLeagueAnnouncement(Game[] theGames){
         
         Period thePeriod = Period.between(theGames[0].getTheDateTime().toLocalDate(), 
@@ -85,4 +87,22 @@ public class League {
         thePeriod.getDays() + " day(s)\n";
     }
 
+    public void showBestPlayers(Team[] theTeams) {
+        ArrayList <Player> thePlayers = new ArrayList();
+        for (Team currTeam: theTeams) {
+            thePlayers.addAll(Arrays.asList(currTeam.getPlayerArray()));
+        }
+        
+        System.out.println("\n\nBest Players");
+
+        Collections.sort(thePlayers, (p1, p2) ->
+                Double.valueOf(p2.getGoalsScored()).compareTo
+                (Double.valueOf(p1.getGoalsScored())));
+
+        
+        for (Player currPlayer: thePlayers) {
+            System.out.println(currPlayer.getPlayerName() + " : " + 
+                    currPlayer.getGoalsScored());
+        }
+    }
 }
