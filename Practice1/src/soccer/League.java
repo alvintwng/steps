@@ -55,15 +55,12 @@ public class League {
             
             }
         }
-        
-        
-        
+
         return (Game[]) theGames.toArray(new Game[1]);
     }
 
     public void showBestTeam(Team[] theTeams) {
         
-        /* Practice 13-2. Add statement to sort theTeams here */
         Arrays.sort(theTeams);
         Team currBestTeam = theTeams[0];  
         System.out.println("\nTeam Points");       
@@ -71,17 +68,7 @@ public class League {
         for (Team currTeam: theTeams){
             System.out.println(currTeam.getTeamName() + " : " + currTeam.getPointsTotal() + " : "
                      + currTeam.getGoalsTotal());
-            
-        /* Practice 13-2. Remove all conditional code starting here   
-            currBestTeam = currTeam.getPointsTotal() > currBestTeam.getPointsTotal()?currTeam:currBestTeam;
-            if (currTeam.getPointsTotal() > currBestTeam.getPointsTotal()){
-                currBestTeam = currTeam;
-            } else if (currTeam.getPointsTotal() == currBestTeam.getPointsTotal()){
-                if (currTeam.getGoalsTotal() > currBestTeam.getGoalsTotal()){
-                currBestTeam = currTeam;
-                }
-            }
-         */ /* Practice 13-2. Remove all conditional code between this point and above comment */
+
         }
         
         System.out.println("Winner of the League is " + currBestTeam.getTeamName());
@@ -99,12 +86,3 @@ public class League {
     }
 
 }
-/* console
-...
-
-Team Points
-The Crows : 2 : 10
-The Swallows : 2 : 8
-The Robins : 2 : 5
-Winner of the League is The Crows
-*/
