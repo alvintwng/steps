@@ -14,18 +14,22 @@ public class PlayerDatabase {
             players.add(new Player(authorTokens.nextToken()));
         }
     }
-    
-    public Player[] getTeam(int numberOfPlayers){
+
+    public Player[] getTeam(int numberOfPlayers) throws PlayerDatabaseException {
         Player[] teamPlayers = new Player[numberOfPlayers];
         for (int i = 0; i < numberOfPlayers; i++){
             int playerIndex = (int) (Math.random() * players.size());
+            try {
             teamPlayers[i] = players.get(playerIndex);
             players.remove(playerIndex);
+            }
+            catch(IndexOutOfBoundsException ie){
+                throw new PlayerDatabaseException("Not enough players in the database for the teams requested.");
+            }
         }
         return teamPlayers;
         
     }
-    
     
         
 String authorList = 
