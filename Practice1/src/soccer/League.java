@@ -1,3 +1,6 @@
+/* Handling Exception
+Practice 14-1: Overview – Adding Exception Handling
+ */
 package soccer;
 
 import java.time.LocalDateTime;
@@ -14,27 +17,37 @@ public class League {
     public static void main(String[] args) {
         
         League theLeague = new League();
-
+        
+        /* Practice 14-1, Step 3a. Start a try block here */
         try {
-        Team[] theTeams = theLeague.createTeams("The Robins,The Crows,The Swallows,The Owls", 11);
-        Game[] theGames = theLeague.createGames(theTeams);
 
-        System.out.println(theLeague.getLeagueAnnouncement(theGames));
-        for (Game currGame: theGames){
-            currGame.playGame();
-            //break;
-            System.out.println(currGame.getDescription());
+        /* Practice 14-1, Step 2a. Modify the line below to add more teams and players */
+            Team[] theTeams = theLeague.createTeams("The Robins,The Crows,The Swallows, The Owls", 11);
+            Game[] theGames = theLeague.createGames(theTeams);
+
+            System.out.println(theLeague.getLeagueAnnouncement(theGames));
+            for (Game currGame: theGames){
+                currGame.playGame();
+                //break;
+                System.out.println(currGame.getDescription());
+            }
+
+            theLeague.showBestTeam(theTeams);
+            theLeague.showBestPlayers(theTeams);
+        
+        /* Practice 14-1, Step 3b. Close the try block here */
         }
         
-        theLeague.showBestTeam(theTeams);
-        theLeague.showBestPlayers(theTeams);
-        }
-        catch (PlayerDatabaseException e) {
+        /* Practice 14-1, Step 3d. Add a catch block here */
+        // In Javadocs for the Exception method that prints a stack trace—printStackTrace.
+        // It requires a PrintStream to be passed to it. 
+        catch (Exception e) {
             e.printStackTrace(System.err);
         }
-
+        
     }
-
+    
+    /* Practice 14-1, Step 6e. Modify the signature to throw PlayerDatabaseException */
     public Team[] createTeams(String teamNames, int teamSize) throws PlayerDatabaseException {
 
         PlayerDatabase playerDB = new PlayerDatabase();
