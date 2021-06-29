@@ -1,7 +1,7 @@
-package utility;
+package util;
 
 import java.util.*;
-import soccer.Player;
+import play.Player;
 
 public class PlayerDatabase {
     
@@ -31,6 +31,7 @@ public class PlayerDatabase {
         
     }
     
+    
         
 String authorList = 
 "Agatha Christie," + 
@@ -41,7 +42,7 @@ String authorList =
 "Baroness Orczy," +          
 "Brendan Behan," +      
 "Brian Moore," +
-"Boris Pasternik," +
+"Boris Pasternak," +
 "Charles Dickens," +    
 "Charlotte Bronte," +
 "Dorothy Parker," +
