@@ -23,8 +23,8 @@ Java SE I : Programming. Practice1 -  Soccer
 | 17 | 	[pr117](	https://github.com/alvintwng/steps/tree/pr117/Practice1)| 	[Interface. Implements](	https://github.com/alvintwng/steps/commit/13584954a5b652dd6d4dfa9e9b854827b960c6ad)| 	<img src="img/210626pr117.png" alt="210626pr117.png" height="144"> |
 | 18 | 	[pr118](	https://github.com/alvintwng/steps/tree/pr118/Practice1)| 	[Lambda Exp for Sorting](	https://github.com/alvintwng/steps/commit/dad0955708481bb5ad1373cef89d1ea72f080763)| 	<img src="img/210626pr118.png" alt="210626pr118.png" height="144"> |
 | 19 | 	[pr119](	https://github.com/alvintwng/steps/tree/pr119/Practice1)| 	[Handling Exception](	https://github.com/alvintwng/steps/commit/bb3499acddb1e8da74791d8fe71036cc55803f56)| 	<img src="img/210628pr119.png" alt="210628pr119.png" height="144"> |
-| 20 | 	[pr120](	https://github.com/alvintwng/steps/tree/pr120/Practice1)| 	[	No comments](	)| 	<img src="img/210629pr120.png" alt="210629pr120.png" height="144"> |
-| 21 | 	[pr121](	https://github.com/alvintwng/steps/tree/pr121/Practice1)| 	[sample console output](	sampleOutput.md)| 	<img src="img/210629pr121.png" alt="210629pr121.png" height="144"> |
+  | 20 | 	[pr120](	https://github.com/alvintwng/steps/tree/pr120/Practice1)| No comments | 	<img src="img/210629pr120.png" alt="210629pr120.png" height="144"> |
+| 21 | 	[pr121](	https://github.com/alvintwng/steps/tree/pr121/Practice1)| 	[sample console output](/../../blob/pr121/Practice1/sampleOutput.md)| 	<img src="img/210629pr121.png" alt="210629pr121.png" height="144"> |
 
 
 [:top: Top](#top)
