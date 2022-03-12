@@ -10,9 +10,9 @@ package acebank;
 public class AceBank {
 
     public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println("Testing mySql: ");
-        SqlConnect.preTest();;
+
+        // pre Testing
+        SqlConnect.preTest();
     }
     
 }
