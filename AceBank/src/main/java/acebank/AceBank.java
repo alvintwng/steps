@@ -13,6 +13,7 @@ public class AceBank {
 
         // pre Testing
         SqlConnect.preTest();
+        bankacc.BankAccDAO.preTest();
     }
     
 }
