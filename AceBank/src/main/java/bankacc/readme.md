@@ -1,4 +1,4 @@
 AceBank/bankacc
 
 * BankAcc - pojo
-* BankAccDAO - DAO, preTest()
+* AccDAO - DAO, preTest() (AccDAO.java was bankAccDAO.java)

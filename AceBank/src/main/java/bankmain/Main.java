@@ -1,19 +1,20 @@
 /* 220311 1212
- * CoreBanking
+ * AceBank - Main 
  */
-package acebank;
+package bankmain;
 
 /**
  *
  * @author antw
  */
-public class AceBank {
+public class Main {
 
     public static void main(String[] args) {
 
         // pre Testing
         SqlConnect.preTest();
-        bankacc.BankAccDAO.preTest();
+        bankacc.AccDAO.preTest();
+        DisplayMenu.preTest();
     }
     
 }

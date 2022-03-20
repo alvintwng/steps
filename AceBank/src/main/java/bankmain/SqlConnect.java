@@ -4,7 +4,7 @@
  * Dependencies added: mysql-connector-java > version 8.0.22
  * Right click at Dependencies, Add Dependency, Query: mysql
  */
-package acebank;
+package bankmain;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

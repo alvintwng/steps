@@ -1,5 +1,5 @@
 /** 220312 2
- * BankAccDAO
+ * AccDAO
  * 
  * The Data Access Object (DAO) pattern is a structural pattern that allows us 
  * to isolate the application/business layer from the persistence layer 
@@ -14,7 +14,7 @@
  */
 package bankacc;
 
-import acebank.SqlConnect;
+import bankmain.SqlConnect;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ import java.util.List;
  *
  * @author antw
  */
-public class BankAccDAO {
+public class AccDAO {
     
     /* object for  listAcc, accRow(id), getList(accNo) */
     public static BankAcc bankAccSql(ResultSet rs) throws Exception {
