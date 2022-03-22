@@ -7,8 +7,9 @@
  * using an abstract API.
  * 
  * BankAcc bankAccSql(ResultSet rs) - object for listAcc, accRow, getList
- * List<BankAcc> listAcc()          - List all accounts detail
+ * int insertNewAcc(getAccNo, getOpenDate) - create new account
  * BankAcc accRow(id)               - get single row
+ * List<BankAcc> listAcc()          - List all accounts detail
  * BankAcc getList(accNo)           - List data by Account No.
  * preTest()
  */
@@ -16,6 +17,7 @@ package bankacc;
 
 import bankmain.SqlConnect;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,25 +26,58 @@ import java.util.List;
  * @author antw
  */
 public class AccDAO {
-    
+
     /* object for  listAcc, accRow(id), getList(accNo) */
     public static BankAcc bankAccSql(ResultSet rs) throws Exception {
         
-        var accInfo = (new BankAcc(
-                rs.getInt("id"),
-                rs.getString("accNo"),
-                rs.getDouble("balance"),
-                rs.getDouble("intRate"),
-                rs.getDate("accOpenDate").toLocalDate(),
-                rs.getDate("accClosedDate").toLocalDate(),
-                rs.getDouble("minBal")
-        ));
-
+        BankAcc accInfo;
+            if (rs.getDate("accClosedDate") != null) {
+                accInfo = (new BankAcc(
+                        rs.getInt("id"),
+                        rs.getString("accNo"),
+                        rs.getDouble("balance"),
+                        rs.getDouble("intRate"),
+                        rs.getDate("accOpenDate").toLocalDate(),
+                        rs.getDate("accClosedDate").toLocalDate(),
+                        rs.getDouble("minBal")
+                ));
+            } else  {
+                accInfo = (new BankAcc(
+                        rs.getInt("id"),
+                        rs.getString("accNo"),
+                        rs.getDouble("balance"),
+                        rs.getDouble("intRate"),
+                        rs.getDate("accOpenDate").toLocalDate(),
+                        rs.getDouble("minBal")
+                ));
+            }
        return accInfo;
     }
     
+    /**
+     * for createAcc(), ref: case 1
+     * @param getAccNo
+     * @param getOpenDate
+     * @return
+     * @throws Exception 
+     */
+    public static int insertNewAcc(String getAccNo, LocalDate getOpenDate ) throws Exception {
+        var stmt = SqlConnect.init();
+        var insStmt = "insert into aceBank.bankAc (accNo, accOpenDate) values (" 
+                +"'"+ getAccNo +"'"+ ", "                   // String
+                +"'"+ getOpenDate.toString() +"'"
+                + "); " ;
+        var result = stmt.executeUpdate(insStmt);
+        
+        return result;
+    }
     
-    /* List all accounts detail */
+    /**
+     * for listAllAcc(), ref: case 5
+     * List all accounts detail
+     * @return
+     * @throws Exception 
+     */
     public static List<BankAcc> listAcc() throws Exception {
         
         var qStmt = "Select * from aceBank.bankAc";

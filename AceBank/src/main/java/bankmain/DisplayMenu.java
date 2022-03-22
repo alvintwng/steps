@@ -16,12 +16,21 @@ public class DisplayMenu {
     
     public static Scanner myObj = new Scanner(System.in);
     
-    public static int option() {
-        System.out.println("\n" + 
-            " Select an option from below\n" +
-            "\t" + "(0) Exit \n");
+    public static String bankMenu = ("""               
+        ----------------------------------------------------
+                                Main Menu
+        ----------------------------------------------------
+          Select an option from below
+            [1] Create Account
+            [5] List all Accounts No.
+            [0] Exit
+        """);
+    
+    public static int option(String displayString) {
         
-        System.out.print(" Enter a numer to carry out the operation : ");
+        System.out.println("\n" + displayString);
+        
+        System.out.print(" Enter a number to carry out the operation : ");
         
         int optVal;
         try{
@@ -35,14 +44,14 @@ public class DisplayMenu {
     }
     
     public static void toContinue() {
-        System.out.println(" Press any character to continue ... ");
+        System.out.print(" Press any character to continue ... ");
         myObj.next();
     }
     
     public static void preTest() {
         
         while (true) {
-            var optionVal = option();
+            var optionVal = option(bankMenu);
             
             switch (optionVal) {
                 case 0:
@@ -55,5 +64,9 @@ public class DisplayMenu {
             
             toContinue();
         }
+    }
+    
+    public static void main(String[] args) {
+        preTest();
     }
 }

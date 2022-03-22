@@ -25,7 +25,17 @@ public class BankAcc {
     private LocalDate accOpenDate;
     private LocalDate accClosedDate;
     private double minBal;
-    
+
+    public BankAcc(int id, String accNo, double balance, double intRate, 
+            LocalDate accOpenDate, double minBal) {
+        this.id = id;
+        this.accNo = accNo;
+        this.balance = balance;
+        this.intRate = intRate;
+        this.accOpenDate = accOpenDate;
+        this.minBal = minBal;
+    }
+
     public BankAcc(int id, String accNo, double balance, double intRate, 
             LocalDate accOpenDate, LocalDate accClosedDate, double minBal) {
         this.id = id;
@@ -42,13 +52,13 @@ public class BankAcc {
         
         String s = String.format("%.3f", intRate);
         
-        return  id + "\t" + 
-                accNo + "\t" + 
-                balance + "\t\t" + 
-                s + "\t" + 
+        return  id      + "\t" + 
+                accNo   + "\t" + 
+                balance + "\t" + 
+                s       + "\t" + 
+                minBal  + "\t" + 
                 accOpenDate + "\t" + 
-                accClosedDate + "\t" + 
-                minBal;
+                accClosedDate;
     }
     
     public int getId() {

@@ -1,5 +1,12 @@
 AceBank/bankmain
 
-* Main - main() (Main.java was AceBank.java)
-* SqlConnect - preTest()
-* Displaymenu - To display menu on console.
+*   Main
+    *   main()
+*   SqlConnect
+    *   Statement init()
+    *   Connection initConn()
+    *   preTest()
+*   Displaymenu - To display menu on console.
+    *   int option(String)
+    *   toContinue()
+    *   preTest()
