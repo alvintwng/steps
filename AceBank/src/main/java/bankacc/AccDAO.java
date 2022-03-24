@@ -8,7 +8,9 @@
  * 
  * BankAcc bankAccSql(ResultSet rs) - object for listAcc, accRow, getList
  * int insertNewAcc(getAccNo, getOpenDate) - create new account
- * BankAcc accRow(id)               - get single row
+ * BankAcc accRow(id)               - get single row, by ID
+ * int updateAcc(BankAcc s)         - to change the value of account, by ID
+ * int deleteAcc(BankAcc d)         - to delete an account by ID.
  * List<BankAcc> listAcc()          - List all accounts detail
  * BankAcc getList(accNo)           - List data by Account No.
  * preTest()
@@ -55,7 +57,7 @@ public class AccDAO {
     }
     
     /**
-     * for createAcc(), ref: case 1
+     * for AccCRUD/createAcc(), ref: case 1
      * @param getAccNo
      * @param getOpenDate
      * @return
@@ -73,28 +75,13 @@ public class AccDAO {
     }
     
     /**
-     * for listAllAcc(), ref: case 5
-     * List all accounts detail
+     * for AccCRUD/listById(), ref: case 2
+     * get single row from id
+     * @param id
      * @return
      * @throws Exception 
      */
-    public static List<BankAcc> listAcc() throws Exception {
-        
-        var qStmt = "Select * from aceBank.bankAc";
-        var stmt = SqlConnect.init();
-        var rs = stmt.executeQuery(qStmt);
-        
-        var acList = new ArrayList<BankAcc>();
-        while (rs.next()) {
-            acList.add(bankAccSql(rs));     // bankAcc object, bankAccSql(rs)
-        }
-        
-        return acList;
-    }
-    
-    /* get single row from id */
     public static BankAcc accRow(int id) throws Exception{
-        
         var qStmt = "Select * from aceBank.bankAc where id = " + id + ";";
         var stmt = SqlConnect.init();
         var rs = stmt.executeQuery(qStmt);
@@ -106,10 +93,59 @@ public class AccDAO {
         
         return accInfo;
     }
+
+    /**
+     * for AccCRUD/updateAcc(), ref: case 3
+     * @param s
+     * @return
+     * @throws Exception
+     */
+    public static int updateAcc(BankAcc s) throws Exception {
+        var stmt = SqlConnect.init();
+        var updStmt = "Update aceBank.bankAc set balance = " + s.getBalance()
+                + ", intRate = " + s.getIntRate()
+                + ", minBal = " + s.getMinBal()
+                + ", accOpenDate = '" + s.getAccOpenDate() + "'"
+                + " where (id = " + s.getId() + ");";
+        var result = stmt.executeUpdate(updStmt);
+        
+        return result;
+    }
     
+    /**
+     * for AccCRUD/deleteAccById(); ref: case 4
+     * @param d
+     * @return
+     * @throws Exception
+     */
+    public static int deleteAcc(BankAcc d) throws Exception {
+        var stmt = SqlConnect.init();
+        var delStmt = "delete from aceBank.bankAc where id = " + d.getId() + ";";
+        var result = stmt.executeUpdate(delStmt);
+        
+        return result;
+    }
+
+    /**
+     * for AccCRUD/listAllAcc(), ref: case 5
+     * List all accounts detail
+     * @return
+     * @throws Exception
+     */
+    public static List<BankAcc> listAcc() throws Exception {
+        var qStmt = "Select * from aceBank.bankAc";
+        var stmt = SqlConnect.init();
+        var rs = stmt.executeQuery(qStmt);
+        var acList = new ArrayList<BankAcc>();
+        while (rs.next()) {
+            acList.add(bankAccSql(rs));     // bankAcc object, bankAccSql(rs)
+        }
+        
+        return acList;
+    }
+
     /* List data by Account No. */
     public static BankAcc getList(String accNo) throws Exception {
-       
        var qStmt = "Select * from aceBank.bankAc where accNo = ?";
        var conn = SqlConnect.initConn();
        var pStmt = conn.prepareStatement(qStmt);
@@ -128,13 +164,13 @@ public class AccDAO {
     /*Testing for above objects*/
     public  static void preTest() {
         try {
-            
             var accNo = "123-456-789-0";
             System.out.println("\n" + "AceBank BankAccDAO preTest:" +"\n"+ 
                     "getList(String) \n" + getList(accNo) +"\n"+
                     "accRow(id) \n" + accRow(1) +"\n"+
                     "listAcc: \n" // +"\n"+ listAcc().get(0)
             );
+            
             listAcc().stream().forEach(System.out::println);
             
         } catch (Exception e) {
@@ -142,9 +178,9 @@ public class AccDAO {
         }
     }
     
-    public static void main(String[] args) {
-        preTest();
-    }
+//    public static void main(String[] args) {
+//        preTest();
+//    }
     
 }
 

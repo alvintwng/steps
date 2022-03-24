@@ -6,7 +6,8 @@ AceBank/bankmain
     *   Statement init()
     *   Connection initConn()
     *   preTest()
-*   Displaymenu - To display menu on console.
-    *   int option(String)
+*   DisplayOption - To display menu on console.
+    *   float inputValueViaScanner()
+    *   int selectAnOption(String)
     *   toContinue()
     *   preTest()
