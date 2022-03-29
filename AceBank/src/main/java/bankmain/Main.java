@@ -11,10 +11,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // pre Testing
-//        SqlConnect.preTest();
-//        bankacc.AccDAO.preTest();
-//        DisplayMenu.preTest();
         bankacc.AccCRUD.main();
     }
     

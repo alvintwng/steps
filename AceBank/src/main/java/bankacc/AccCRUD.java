@@ -9,6 +9,7 @@
 package bankacc;
 
 import bankmain.DisplayOption;
+import static bankmain.DisplayOption.printLine;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.regex.Pattern;
@@ -22,6 +23,24 @@ public class AccCRUD {
     
     private static Scanner myObj = new Scanner(System.in);
     
+    static String HeaderMain    = "\n" + printLine(16, "===");
+    static String FooterMain    = printLine(16, "---") + "\n";
+    
+    static String HeaderRow     = "\n" + printLine(27, "===") +"\n"
+            + "  ID\tAccNo\t\t  " 
+            + "Balance  Int Rate  Min Bal  Acc Open Date  Acc Close Date \n"
+            + printLine(27, "===");
+    static String FooterRow = printLine(27, "---") +"\n";
+    
+    static String HeaderIDnAcc  = "\n" + printLine(6, "===") +"\n"
+            + "  ID\tAccount No. \n"
+            + printLine(6, "===");
+    static String FooterIDnAcc  = printLine(6, "---") +"\n";
+    
+    /**
+     * * createAcc(); * listById(); * updateAcc(); * deleteAccById();
+     * * listAllAcc(); * caseExit();
+     */
     public static void main() {
         
         while (true) {
@@ -44,8 +63,7 @@ public class AccCRUD {
                     listAllAcc();
                     break;
                 case 0:
-                    System.out.println(" Exit");
-                    System.exit(0);
+                    caseExit();
                 default:
                     System.out.println(" Invalid Option");
                     break;
@@ -73,15 +91,15 @@ public class AccCRUD {
             }
         } catch (Exception ex) {
             System.out.println(" Exception ID error message here ... " + ex.getMessage());
-            String c = myObj.next();   // ? to clear the myObj to next
+            var c = myObj.next();   // to removed the newline char in buffer
         }
 
         return null;
     }
     
     /** case 1
-     * @return */
-    private static boolean createAcc() {
+     **/
+    private static void createAcc() {
         Pattern p = Pattern.compile("[0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{1}");
         
         System.out.print(" Account No (xxx-xxx-xxx-x): ");
@@ -92,8 +110,17 @@ public class AccCRUD {
             // check if existing account available
             if (AccDAO.getList(accNo) == null) {
                 var result = AccDAO.insertNewAcc(accNo, accOpenDate);
-                System.out.println((result > 0)
-                        ? " Account created: " + accNo : " Fail to create");
+                if (result > 0) {
+                    System.out.println(" Account created: ");
+                    System.out.println(HeaderIDnAcc);
+                    
+                    BankAcc b = AccDAO.getList(accNo);
+                    System.out.println(b.accNoToString());
+                    
+                    System.out.println(FooterIDnAcc);
+                } else {
+                    System.out.println(" Fail to create!");
+                }
             } else {
                 System.out.println(" Unable to create, "
                         + "there is existing account available!");
@@ -101,27 +128,27 @@ public class AccCRUD {
         } catch (Exception e) {
             System.out.println(" Exception error message here ... " + e.getMessage());
             var c = myObj.next();
-            return false;
         }
-        
-        return true;
+
     }
     
     /** case 2
-     * @return */
-    private static boolean listById() {
+     **/
+    private static void listById() {
         BankAcc row = hasSuchID();
         if (row != null) {
+            System.out.println(HeaderRow);
+
             System.out.println(row.toString());
-            return true;
+
+            System.out.println(FooterRow);
         }
 
-        return false;
     }
     
     /** case 3
-     * @return */
-    private static int updateAcc() {
+     **/
+    private static void updateAcc() {
         LocalDate theDate;
         var dtf = DateTimeFormatter.ISO_LOCAL_DATE;
         var x = -1.00;
@@ -129,6 +156,8 @@ public class AccCRUD {
         BankAcc row = hasSuchID();
         
         if (row != null)  {
+            System.out.println(HeaderMain);
+            
             var id = row.getId();
             var intRate = String.format("%.3f", row.getIntRate());
 
@@ -171,18 +200,22 @@ public class AccCRUD {
                 System.out.println(" Exception... " + e.getMessage());
                 var c = myObj.next();
             }
+
+            System.out.println(FooterMain);
         }
 
-        return 1;
     }
     
     /** case 4
-     * @return */
-    private static boolean deleteAccById() {
+     **/
+    private static void deleteAccById() {
         BankAcc row = hasSuchID();
         try {
             if (row != null) {
+                System.out.println(HeaderMain);
+
                 var id = row.getId();
+                System.out.println(" Deleting Account : " + row.getAccNo());
                 System.out.print(" Are you sure [y/n][Y/N]:: ");
                 var resp = myObj.next();
                 if (resp.equalsIgnoreCase("y")) {
@@ -190,25 +223,44 @@ public class AccCRUD {
                     var result = AccDAO.deleteAcc(row);
                     System.out.println( (result > 0) ? " Delete Success ": " Delete  Fail ");
                 }
+
+                System.out.println(FooterMain);
             }
         } catch (Exception e) {
             System.out.println(" Exception error message here ... " + e.getMessage());
             var c = myObj.next();
         }
 
-        return true;
     }
 
     /** case 5
-     * @return  */
-    private static int listAllAcc() {
+     **/
+    private static void listAllAcc() {
         try {
+            System.out.println(HeaderIDnAcc);
+
             AccDAO.listAcc().forEach(p -> {
-                System.out.println(p.getId() +  "\t" + p.getAccNo());
+                System.out.println(p.accNoToString());
             });
+
+            System.out.println(FooterIDnAcc);
+
         } catch (Exception e) {
             System.out.println(" Exception here ....  " + e.getMessage());
         }
-        return 1;
     }
+    
+    /**
+     * case 0
+     */
+    private static void caseExit() {
+        System.out.println(" Exit\n");
+        try {
+            Thread.sleep(3600);
+        } catch (InterruptedException ex) {
+            System.out.println(ex.getMessage());
+        }
+        System.exit(0);
+    }
+    
 }

@@ -29,7 +29,12 @@ import java.util.List;
  */
 public class AccDAO {
 
-    /* object for  listAcc, accRow(id), getList(accNo) */
+    /**
+     * SQL calling statement for  listAcc, accRow(id), getList(accNo)
+     * @param rs
+     * @return
+     * @throws Exception 
+     */
     public static BankAcc bankAccSql(ResultSet rs) throws Exception {
         
         BankAcc accInfo;
@@ -57,6 +62,7 @@ public class AccDAO {
     }
     
     /**
+     * Class SqlConnect, to create an account via SQL insert, 
      * for AccCRUD/createAcc(), ref: case 1
      * @param getAccNo
      * @param getOpenDate
@@ -75,6 +81,7 @@ public class AccDAO {
     }
     
     /**
+     * Class SqlConnect, to get a BankAcc via ID, 
      * for AccCRUD/listById(), ref: case 2
      * get single row from id
      * @param id
@@ -95,6 +102,7 @@ public class AccDAO {
     }
 
     /**
+     * Class SqlConnect, to change and update a BankAcc,    
      * for AccCRUD/updateAcc(), ref: case 3
      * @param s
      * @return
@@ -113,6 +121,7 @@ public class AccDAO {
     }
     
     /**
+     * Class SqlConnect, to delete a BankAcc by ID,   
      * for AccCRUD/deleteAccById(); ref: case 4
      * @param d
      * @return
@@ -127,6 +136,7 @@ public class AccDAO {
     }
 
     /**
+     * Class SqlConnect, to get all available BankAcc, 
      * for AccCRUD/listAllAcc(), ref: case 5
      * List all accounts detail
      * @return
@@ -144,7 +154,12 @@ public class AccDAO {
         return acList;
     }
 
-    /* List data by Account No. */
+    /**
+     * Class SqlConnect, to get a BankAcc by Account No.
+     * @param accNo
+     * @return
+     * @throws Exception 
+     */
     public static BankAcc getList(String accNo) throws Exception {
        var qStmt = "Select * from aceBank.bankAc where accNo = ?";
        var conn = SqlConnect.initConn();
@@ -161,7 +176,9 @@ public class AccDAO {
     }
     
     
-    /*Testing for above objects*/
+    /**
+     * Testing for above methods
+     */
     public  static void preTest() {
         try {
             var accNo = "123-456-789-0";
@@ -172,6 +189,9 @@ public class AccDAO {
             );
             
             listAcc().stream().forEach(System.out::println);
+//            listAcc().forEach(System.out::println);
+//            listAcc().forEach(p -> System.out.println(p));
+//            listAcc().stream().forEach(p -> System.out.println(p));
             
         } catch (Exception e) {
             System.out.println(" Exception here ....  " + e.getMessage());

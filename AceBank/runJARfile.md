@@ -1,12 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>bank</groupId>
-    <artifactId>AceBank</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
-    <build>
-        <plugins>
+### To run jar file on command line
+
+``` console
+antw@Mac-mini AceBank % pwd
+/Users/antw/steps/AceBank
+antw@Mac-mini AceBank % java -jar target/AceBank-1.0-SNAPSHOT.jar
+```
+
+prior to this, pom.xml need to add plug-in
+``` xml
+<build>
+     <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -39,18 +42,30 @@
                     </execution>
                 </executions>
             </plugin>
-        </plugins>
-    </build>
-    <dependencies>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.22</version>
-        </dependency>
-    </dependencies>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
-</project>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+       <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-compiler-plugin</artifactId>
+         <version>3.3</version>
+         <configuration>
+           <compilerArgs>
+             <arg>--enable-preview</arg>
+           </compilerArgs>
+         </configuration>
+       </plugin>
+     </plugins>
+</build>
+```
+Reference from stackoverflow: 
+- https://stackoverflow.com/questions/55272267/cant-run-jar-file-on-command-line-with-maven
+
+Reference of version from maven.apache.prg: 
+- https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-resources-plugin/
+

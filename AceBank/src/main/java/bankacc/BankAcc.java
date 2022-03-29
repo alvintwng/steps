@@ -50,15 +50,24 @@ public class BankAcc {
     @Override
     public String toString() {
         
-        String s = String.format("%.3f", intRate);
-        
-        return  id      + "\t" + 
-                accNo   + "\t" + 
-                balance + "\t" + 
-                s       + "\t" + 
-                minBal  + "\t" + 
-                accOpenDate + "\t" + 
+        var s = " " + 
+                String.format("%3d", id) + "\t" + 
+                accNo  +
+                String.format("%12.2f", balance) + 
+                String.format("%9.3f", intRate) + 
+                String.format("%9.2f", minBal)  + "   " + 
+                accOpenDate + "     " + 
                 accClosedDate;
+
+        return s;
+    }
+
+    public String accNoToString() {
+        var s = " " + 
+                String.format("%3d", id) + "\t" + 
+                accNo;
+
+        return s;
     }
     
     public int getId() {
